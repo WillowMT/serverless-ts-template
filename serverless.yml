@@ -1,0 +1,20 @@
+org: willowmt
+app: redislounge
+service: redislounge
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  environment:
+    API: soydora
+
+functions:
+  function1:
+    handler: handler.hello
+    events:
+      - http: GET /hello
+
+plugins:
+  - serverless-offline
+  - serverless-plugin-typescript
